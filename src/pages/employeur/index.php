@@ -32,7 +32,9 @@ require __DIR__ . '/../base.php';
                     echo "<td> " . $employeur->getAdresse() . "</td>";
                     echo "<td> " . $employeur->getEmail() . "</td>";
                     echo "<td> " . $employeur->getCin() . "</td>";
-                    echo "<td> <a href='/employeur/".$employeur->getID()."' >Show</a></td>";
+                    echo "<td> <a href='/employeur/".$employeur->getID()."' >Show</a>
+                    <a href='/employeur/".$employeur->getID()."/edit' >edit</a>
+                    </td>";
                     echo '</tr>';
                     
 

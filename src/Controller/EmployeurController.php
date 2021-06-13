@@ -6,7 +6,6 @@ use App\Repository\EmployeurRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use function PHPUnit\Framework\isEmpty;
 
 class EmployeurController{
     public function index(Request $request){
@@ -39,6 +38,31 @@ class EmployeurController{
         include __DIR__.'/../pages/employeur/new.php';
         return new Response(ob_get_clean());
     }
+    public function edit(Request $request,int $id){
+
+        $repoEmployeur = new EmployeurRepository();
+        $employeur= $repoEmployeur->getById($id);
+        if(count($request->request)>1){
+            $employeur->setNom( $request->request->get("nom"));
+            $employeur->setPrenom( $request->request->get("prenom"));
+            $employeur->setAdresse( $request->request->get("adresse"));
+            $employeur->setDateDeNaissance( $request->request->get("date_de_naissance"));
+            $employeur->setEMail( $request->request->get("email"));
+            $employeur->setCin( $request->request->get("cin"));
+            $repoEmployeur->update($employeur);
+            $title = "show";
+            ob_start();
+            include __DIR__.'/../pages/employeur/show.php';
+            return new Response(ob_get_clean());
+            
+        }
+        $title = "edit";
+        ob_start();
+        include __DIR__.'/../pages/employeur/edit.php';
+        return new Response(ob_get_clean());
+    }
+ 
+
     public function show(Request $request,int $id){
         $repoEmployeur = new EmployeurRepository();
         $employeur= $repoEmployeur->getById($id);

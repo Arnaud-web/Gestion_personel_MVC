@@ -37,7 +37,7 @@ class EmployeurRepository{
             }else{
                 $this->employeurs =  new Employeur();
             }
-            $conn->close();
+            // $conn->close();
 
         return $this->employeurs;
 
@@ -63,7 +63,7 @@ class EmployeurRepository{
             }else{
                 $this->employeurs =  new Employeur();
             }
-            $conn->close();
+            // $conn->close();
 
         return $this->employeurs;
 
@@ -81,8 +81,25 @@ class EmployeurRepository{
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        // $conn->close();
+        return $employeur;     
+    }
+
+    public function update(Employeur $employeur){
+        $conn = $this->conn;
+        
+        $sql = "UPDATE  employeur SET nom = '".$employeur->getNom()."' , prenom = '".$employeur->getPrenom()."' , date_de_naissance = '".$employeur->getDateDeNaissance()."'
+        , adresse = '".$employeur->getAdresse()."' , email = '".$employeur->getEmail()."' , cin = '".$employeur->getCin()."' WHERE id = ".$employeur->getId()."";
+        // $sql = "UPDATE  employeur SET nom = ".'"dfd"'." WHERE id = 3 ";
+        if ($conn->query($sql) === TRUE) {
+            // $conn->close();
+            return $employeur;
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        // $conn->close();
         return $employeur;
-        $conn->close();
         
     }
 

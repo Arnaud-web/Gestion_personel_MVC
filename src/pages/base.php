@@ -16,4 +16,19 @@
 	    </script>
 	</head>
 
-   
+<nav class="navbar navbar-expand-sm  justify-content-center" style = "background:rgba(0,0,0,0.3);color:red">
+
+<!-- Links -->
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/employeur">listes des employeurs </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/employeur/new">New employeur </a>
+  </li>
+</ul>
+
+</nav>

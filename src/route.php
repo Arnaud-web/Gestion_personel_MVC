@@ -21,6 +21,11 @@ $route->add('/employeur_show', new Route('/employeur/{id}', [
     '_controller' => 'App\Controller\EmployeurController::show'
     // '_controller' => [new App\Controller\PageController, 'bay']
 ]));
+$route->add('/employeur_edit', new Route('/employeur/{id}/edit', [
+    'id'=>null,
+    '_controller' => 'App\Controller\EmployeurController::edit'
+    // '_controller' => [new App\Controller\PageController, 'bay']
+]));
 
 
 
